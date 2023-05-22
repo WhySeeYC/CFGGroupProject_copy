@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, jsonify, request, redirect, url_for
+from flask_investment import investment_lookup
 from werkzeug.utils import secure_filename
 # from code import savings_account
 
@@ -58,24 +59,24 @@ def get_summary():
         return render_template("get_summary.html")
 
 # Investment Selection Page
-@app.route('/investment_search',  methods=["GET", "POST"])
+@app.route("/investment_search",  methods=["GET", "POST"])
 def calculate_value():
     """Get stock quote."""
     if request.method == "POST":
 
         # Ensure symbol was submitted
         if not request.form.get("symbol"):
-            return "must provide stock symbol!"
+            return render_template('error.html')
 
         if not request.form.get("quantity"):
-            return "must provide quantity!"
+            return render_template('error.html')
 
         else:
-            data = temp(request.form.get("symbol"))
+            data = investment_lookup(request.form.get("symbol"), request.form.get("quantity"))
             if data:
-                return render_template("investment_result.html", name=data["name"], symbol=data["symbol"], price=data["price"])
+                return render_template("investment_result.html", name=data["name"], symbol=data["symbol"], price=data["price"], value=data["value"], quantity=data["quantity"])
             else:
-                return "invalid symbol!"
+                return render_template('error.html')
 
         # User reached route via GET (as by clicking a link or via redirect)
     else:
