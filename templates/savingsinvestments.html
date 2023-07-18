@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Savings and Investments calculator</title>
+</head>
+<body>
+     {% include 'template.html' %} 
+<h1>Savings and Investments calculator</h1>
+
+{% for interest_record in interest %}
+    <h3>{{ interest_record.bank_name }}</h3>
+    <p>The interest rate for {{ interest_record.bank_name }} is {{ interest_record.interest_rate }}</p>
+    <p>Information retrieved on {{ interest_record.date_retrieved }}</p>
+{% endfor %}
+</body>
+</html>
