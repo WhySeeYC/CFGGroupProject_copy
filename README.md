@@ -22,3 +22,7 @@ A video presentation for this project is available at [YouTube](https://youtu.be
 - `Presentation Graphics/` folder contains the material for assessment day. The snapshot of code were captured with [Polacode](https://marketplace.visualstudio.com/items?itemName=pnp.polacode) extension in vs code. (Note that this is only in local machine because we want to keep the repo simply contains code)
  
  
+## Contributors
+Aisling, Jessika, Layla, Onyeoma, Sophie, YC
+Many thanks to this group of amazing girls making this project come to life.
+Many thanks to Aviva sponsoring our trainings.
